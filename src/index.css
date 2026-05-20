@@ -293,3 +293,32 @@ th {
   font-family: monospace;
   font-size: 11px;
 }
+
+/* הוספה בסוף קובץ ה-index.css */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-top: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  color: var(--text-primary); /* מוודא שהטקסט לבן על הרקע הכהה */
+}
+
+th {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-secondary);
+  text-align: right;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  border-top: 1px solid var(--border-subtle);
+}

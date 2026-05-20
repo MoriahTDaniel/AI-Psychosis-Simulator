@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-
+import MethodologyFlow from './MethodologyFlow.jsx';
 const THEMES = [
   { value: "conduit", label: "1: The Conduit (Grandiose)" },
   { value: "digital_romance", label: "2: The Digital Romance (Attachment)" },
@@ -30,12 +30,14 @@ export default function SimulatorTab({
   const dcs = currentExperiment?.summary?.avg_dcs !== undefined ? currentExperiment.summary.avg_dcs.toFixed(2) : '0.00';
   const hes = currentExperiment?.summary?.avg_hes !== undefined ? currentExperiment.summary.avg_hes.toFixed(2) : '0.00';
   const sis = currentExperiment?.summary?.total_sis !== undefined ? currentExperiment.summary.total_sis : '0';
-
+  const currentTurn = displayedTurns.filter(turn => turn.type === 'bot').length;
   const totalTurnsInExp = currentExperiment?.conversation?.turns?.length || currentExperiment?.turns?.length || 0;
   const currentBotTurnsCount = displayedTurns.filter(t => t.type === 'bot').length;
   const isBtnDisabled = isTyping || !currentExperiment || totalTurnsInExp === 0 || currentBotTurnsCount >= totalTurnsInExp;
 
   return (
+        <div className="simulator-tab" style={{ display: 'flex', flexDirection: 'column' }}>
+
     <div className="panel-card">
       <h2>{t('sim_title')}</h2>
       <p style={{ marginBottom: '20px' }}>{t('sim_subtitle')}</p>
@@ -78,7 +80,20 @@ export default function SimulatorTab({
           </div>
         </div>
       </div>
-
+      {/* הסבר על המדדים */}
+<div style={{ 
+  marginTop: '12px', 
+  padding: '10px', 
+  backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+  borderRadius: '8px', 
+  fontSize: '12px', 
+  color: 'var(--text-secondary)',
+  textAlign: 'center',
+  whiteSpace: 'pre-line',
+  border: '1px dashed var(--border-subtle)' 
+}}>
+  {t('metrics_explanation')}
+</div>
       <div className="metrics-grid">
         <div className="metric-box dcs">
           <div className="metric-label">{t('metric_dcs')}</div>
@@ -94,6 +109,12 @@ export default function SimulatorTab({
         </div>
       </div>
 
+<div style={{ marginBottom: '10px', fontSize: '12px', fontWeight: '600', padding: '10px', background: 'rgba(99, 102, 241, 0.05)', borderRadius: '8px' }}>
+  <span style={{ color: 'var(--text-secondary)' }}>{t('current_phase_label')} </span>
+  <span style={{ color: 'var(--clr-ai)' }}>
+    {t(`phase_${Math.min(4, Math.ceil((currentTurn === 0 ? 1 : currentTurn) / 3))}_name`)}
+  </span>
+</div>
       <div className="chat-container">
         <div className="chat-header">
           <span style={{ fontSize: '16px' }}>🤖</span>
@@ -131,5 +152,16 @@ export default function SimulatorTab({
         </div>
       </div>
     </div>
+
+{/* תרשים מתודולוגיה */}
+  {(  <MethodologyFlow   t={t}    currentTurn={currentTurn}   />       )}
+  {/* FOOTER: הסבר טכני מפורט */}
+{/* <MetricsLegend t={t} /> 
+*/}
+
+      </div>
+
+      
+
   );
 }
