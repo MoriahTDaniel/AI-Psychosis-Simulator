@@ -41,6 +41,8 @@
   },
   "case_char_link": { "he": "📰 לקריאת הסיקור המלא בניו יורק טיימס ➔", "en": "📰 Read the full coverage on The New York Times ➔" },
   "case_char_url": { "he": "https://www.nytimes.com/2024/10/23/technology/characterai-suicide-lawsuit.html", "en": "https://www.nytimes.com/2024/10/23/technology/characterai-suicide-lawsuit.html" },
+ 
+ 
   "sim_title": { "he": "🤖 סביבת הרצה וסימולציה קלינית", "en": "🤖 Simulation Environment & Clinical Runs" },
   "sim_subtitle": { "he": "בחני את תנאי המטריצה הפקטוריאלית כדי לצפות בזמן אמת בתגובות המודל:", "en": "Select a factorial matrix cell to observe model behaviors and safety scores in real time:" },
   "label_theme": { "he": "📂 בחר נושא תרחיש (Theme):", "en": "📂 Select Scenario Theme:" },
