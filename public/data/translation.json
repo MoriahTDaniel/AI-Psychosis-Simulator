@@ -1,0 +1,99 @@
+{
+  "title": {
+    "he": "שיגעון בשניים (Folie à deux): כש-AI שותף להזיה?",
+    "en": "Partners in Delusion: When AI Co-deluding with the User"
+  },
+  "subtitle": {
+    "he": "מניעת הסלמה פסיכוטית בשיח AI באמצעות פרוטוקול pCBT",
+    "en": "Preventing psychotic escalation in AI interactions using a pCBT protocol"
+  },
+  "nav_intro": { "he": "🔬 רקע מחקרי", "en": "🔬 Background & Hypotheses" },
+  "nav_simulator": { "he": "🤖 סימולטור", "en": "🤖 Simulator" },
+  "nav_results": { "he": "📊 תוצאות", "en": "📊 Findings" },
+ "intro_title": { "he": "🔬 רקע מחקרי: הדינמיקה של 'שיגעון בשניים'", "en": "🔬 Research Background: The 'Folie à deux' Dynamic" },
+  "intro_text": {
+  "he": "בפסיכולוגיה, 'שיגעון בשניים' (Folie à deux) הוא מצב שבו אדם מאמץ הזיות של אחר. המחקר שלנו חושף תופעה מקבילה ב-AI, המובילה להסלמה קלינית: בשאיפתם לרצות את המשתמש, המודלים הופכים ל'תיבת תהודה'. הבעיה אינה מוגבלת לאנשים עם אבחנה פסיכיאטרית – היא משפיעה על כל משתמש במצוקה. במקום להציב גבול קליני, המודלים 'זורמים' עם הדלוזיה, מעמיקים את הפסיכוזה ומייצרים מציאות משותפת מסוכנת.",
+  "en": "In psychology, 'Folie à deux' describes a shared delusion between two people. Our research reveals a similar dynamic with AI, leading to clinical escalation: driven by a need to please, models become an 'echo chamber'. This issue is not limited to those with psychiatric diagnoses—it affects any user in distress. Instead of setting clinical boundaries, models 'flow' with the delusion, deepening the psychosis and creating a dangerous shared reality."
+},
+  "research_question_title": {
+    "he": "🎯 השאלה הקלינית שלנו",
+    "en": "🎯 Our Clinical Question"
+  },
+  "research_question_text": {
+    "he": "האם נוכל להפוך את ה-AI ל'קול של שפיות'? במחקר זה בדקנו אם הטמעת פרוטוקול CBT מותאם לפסיכוזה (pCBT) – כזה שמבחין בין תיקוף רגשי לבין אישור עובדתי של הזיות – יכולה לעצור את ההסלמה הקלינית בשיחה.",
+    "en": "Can we turn AI into a 'voice of sanity'? We tested whether injecting a pCBT protocol—one that differentiates between emotional empathy and validating factual delusions—can effectively halt clinical escalation."
+  },
+  "solution_title": {
+    "he": "🛡️ הפתרון שלנו: המצפן הקליני (pCBT)",
+    "en": "🛡️ Our Solution: The Clinical Compass (pCBT)"
+  },
+  "solution_text": {
+    "he": "הטמענו 'מצפן קליני' מבוסס pCBT (טיפול קוגניטיבי-התנהגותי מותאם לפסיכוזה) בתוך המודל. במקום חיזוי טקסטואלי גנרי שנוטה לאשר כל תגובה, יצרנו מנגנון שמזהה תכנים פסיכוטיים, בולם הסלמה ומכוון את השיחה לבטיחות.",
+    "en": "We implemented a 'clinical compass' based on pCBT (Cognitive Behavioral Therapy for Psychosis) within the model. Instead of generic text prediction that validates everything, we created a mechanism that identifies psychotic content, halts escalation, and steers the conversation toward safety."
+  },
+  "critical_title": {
+    "he": "⚠️ למה זה קריטי?",
+    "en": "⚠️ Why is this critical?"
+  },
+  "critical_text": {
+    "he": "המציאות מוכיחה שמודלי שפה אינם 'נייטרליים' בשיחות על מצב נפשי. מקרים שתועדו מראים שהם עלולים לעודד אובדנות ולהחמיר מצבים פסיכוטיים. המחקר שלנו מציג לראשונה דרך לעצור את הדינמיקה הזו מבפנים ולמנוע מה-AI להפוך לשותף פעיל להזיה.",
+    "en": "Reality proves that LLMs are not 'neutral' when discussing mental health. Documented cases show they can encourage suicide and exacerbate psychotic states. Our research presents the first way to halt this dynamic from within and prevent AI from becoming an active partner in delusion."
+  },
+
+  "podcast_cta": {
+    "he": "🎧 להרחבה והעמקה בנושא: האזינו לפרק 'שיגעון בשניים: פסיכוזה טכנולוגית' בפודקאסט עושים היסטוריה ➔",
+    "en": "🎧 For further analysis (Hebrew): Listen to 'Technology-Induced Psychosis' on Osim Historia ➔"
+  },
+  "crisis_title": { "he": "🚨 משברי קצה מן העולם (The Clinical Crisis)", "en": "🚨 Global Failure Cases (The Clinical Crisis)" },
+  "case_eliza_title": { "he": "פרשת הצ'אטבוט Eliza (בלגיה)", "en": "The Eliza Chatbot Case (Belgium)" },
+  "case_eliza_tag": { "he": "אסון קליני", "en": "Clinical Crisis" },
+  "case_eliza_text": {
+    "he": "המודל תיקף בצורה עקבית מחשבות שווא קיומיות של משתמש סביב משבר האקלים, לא הציע כל הפניה לעזרה רפואית, ואף עודד אותו באופן ישיר להתאבד במטרה 'להציל את כדור הארץ'. המקרה הסתיים באסון כבד.",
+    "en": "The model consistently validated an eco-anxiety delusion, failed to offer professional medical help, and explicitly encouraged suicide to 'save the planet together'. The incident resulted in a fatal outcome."
+  },
+  "case_eliza_link": { "he": "📰 לקריאת הסיקור המלא בעיתונות העולמית (La Libre) ➔", "en": "📰 Read the full investigative report (La Libre) ➔" },
+  "case_eliza_url": { "he": "https://www.euronews.com/next/2023/03/31/man-ends-his-life-after-an-ai-chatbot-encouraged-him-to-sacrifice-himself-to-stop-climate", "en": "https://www.euronews.com/next/2023/03/31/man-ends-his-life-after-an-ai-chatbot-encouraged-him-to-sacrifice-himself-to-stop-climate" },
+  "case_char_title": { "he": "Character.ai (קשר אשלייתי חמור)", "en": "Character.ai (Severe Attachment Delusion)" },
+  "case_char_tag": { "he": "כשל חסימה", "en": "Safety Bypass" },
+  "case_char_text": {
+    "he": "נער בן 14 פיתח תלות ואשליית התקשרות חמורה עם דמות AI. המודל נכשל לחלוטין בחסימת תכנים אובדניים מפורשים ולא הפעיל כל הפניה אקטיבית לקווי חירום.",
+    "en": "A 14-year-old user developed a severe attachment delusion with an AI persona. The model failed to block explicit suicidal ideation and provided no automated emergency hotline routing."
+  },
+  "case_char_link": { "he": "📰 לקריאת הסיקור המלא בניו יורק טיימס ➔", "en": "📰 Read the full coverage on The New York Times ➔" },
+  "case_char_url": { "he": "https://www.nytimes.com/2024/10/23/technology/characterai-suicide-lawsuit.html", "en": "https://www.nytimes.com/2024/10/23/technology/characterai-suicide-lawsuit.html" },
+  
+  
+  "sim_title": { "he": "🤖 סביבת הרצה וסימולציה קלינית", "en": "🤖 Simulation Environment & Clinical Runs" },
+  "sim_subtitle": { "he": "בחני את תנאי המטריצה הפקטוריאלית כדי לצפות בזמן אמת בתגובות המודל:", "en": "Select a factorial matrix cell to observe model behaviors and safety scores in real time:" },
+  "label_theme": { "he": "📂 בחר נושא תרחיש (Theme):", "en": "📂 Select Scenario Theme:" },
+  "label_explicitness": { "he": "🔍 רמת גלויות (Explicitness):", "en": "🔍 Symptom Explicitness:" },
+  "btn_explicit": { "he": "גלוי [EXPLICIT]", "en": "Explicit" },
+  "btn_implicit": { "he": "סמוי [IMPLICIT]", "en": "Implicit" },
+  "label_condition": { "he": "🛡️ מצב התערבות פסיכולוגית:", "en": "🛡️ Clinical Intervention State:" },
+  "btn_control": { "he": "קבוצת ביקורת [CONTROL]", "en": "Control Group [CONTROL]" },
+  "btn_pcbt": { "he": "פרומפט טיפולי [pCBT]", "en": "Therapeutic Prompt [pCBT]" },
+  "metric_dcs": { "he": "DCS (אישור אשליה)", "en": "DCS (Delusion)" },
+  "metric_hes": { "he": "HES (אפשור נזק)", "en": "HES (Harm)" },
+  "metric_sis": { "he": "SIS (הפניות בטיחות)", "en": "SIS (Safety)" },
+  "chat_idle": { "he": "🎯 הקליקי על הכפתור למטה כדי להזרים את תורות השיחה הניסויית בזמן אמת", "en": "🎯 Click the button below to stream the evaluation turns in real time." },
+  "chat_user_title": { "he": "👤 קלט מטופל (פסיכוזה מדומה)", "en": "👤 Patient Input (Simulated Psychosis)" },
+  "chat_bot_title": { "he": "🤖 מענה הצ'אטבוט הנבדק", "en": "🤖 Evaluated Chatbot Output" },
+  "badge_harm": { "he": "⚠️ כשל בטיחות: המודל מאשר את האשליה", "en": "⚠️ Safety Failure: Model validates and reinforces delusion" },
+  "badge_safe": { "he": "🛡️ בלימה קלינית מוצלחת: המודל הפעיל פרוטוקול ויסות pCBT.", "en": "🛡️ Successful Mitigation: Model applied pCBT regulation protocol." },
+  "btn_next_turn": { "he": "הזרם תור הבא במחקר ➔", "en": "Stream Next Turn ➔" },
+  "btn_completed": { "he": "🏁 תהליך הסימולציה הושלם", "en": "🏁 Simulation Completed" },
+  "console_title": { "he": "🖥️ קונסולת מעקב מעבדה חי", "en": "🖥️ Live Laboratory Monitor Console" },
+  "results_title": { "he": "📊 ממצאים ותובנות מפתח", "en": "📊 Empirical Findings & Data Matrix" },
+  "results_subtitle": { "he": "מטריצת הנתונים מתוך 10 תורות מלאים לכל תא פקטוריאלי בניסוי:", "en": "Complete data matrix extracted across 10 full turns per factorial cell:" },
+  "insight_title": { "he": "💡 תובנות מפתח לפוסטר", "en": "💡 Key Academic Takeaways" },
+  "insight_1_title": { "he": "📈 אפקט עיקרי מובהק:", "en": "📈 Main Effect of Prompt Intervention:" },
+  "insight_1_text": {
+    "he": "פרומפט ה-pCBT הוריד דרסטית את מדדי ה-DCS ובלם לחלוטין (0.00) אישור של תכני פגיעה עצמית (HES).",
+    "en": "The pCBT prompt achieves clear clinical superiority—drastically reducing DCS metrics and completely halting (0.00) harm enablement (HES)."
+  },
+  "insight_2_title": { "he": "🔍 אפקט האינטראקציה (Explicit vs Implicit):", "en": "🔍 Factorial Interaction (Explicit vs Implicit Gap):" },
+  "insight_2_text": {
+    "he": "המודל נוטה יותר לאשר אשליות כשהן מוצגות בצורה סמויה (DCS=1.00) לעומת גלויה (DCS=0.43).",
+    "en": "Models demonstrate lower resilience when delusions are presented implicitly (DCS=1.00) vs. explicitly (DCS=0.43)."
+  }
+}

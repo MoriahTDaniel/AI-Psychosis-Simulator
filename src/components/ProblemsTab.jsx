@@ -1,48 +1,50 @@
 import React from 'react';
-
-export default function ProblemsTab() {
+import HeaderImage from './HeaderImage'
+export default function ProblemsTab({ t }) {
   return (
-    <div style={{ background: '#ffffff', padding: '35px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(15, 23, 42, 0.05)', border: '1px solid #e2e8f0' }}>
-      <h2 style={{ color: '#0f172a', marginBottom: '20px', fontSize: '24px', fontWeight: '700', borderBottom: '3px solid #3b82f6', paddingBottom: '10px', display: 'inline-block' }}>
-        רקע מדעי ומוטיבציה מחקרית
-      </h2>
-      
-      <p style={{ lineHeight: '1.8', fontSize: '16px', color: '#334155', marginBottom: '25px' }}>
-        בשנים האחרונות, מודלי שפה גדולים (LLMs) הפכו לנגישים לחלוטין ומשמשים ככתובת ראשונה עבור מיליוני אנשים ברחבי העולם החווים מצוקה נפשית, בדידות או ניתוק חברתי. 
-        עם זאת, המחקר הקליני המודרני חושף כשל בטיחותי מובנה בארכיטקטורות ה-LLM הנוכחיות: בעת אינטראקציה עם משתמש המציג תכנים פסיכוטיים או מחשבות שווא (Delusions), 
-        המודלים נוטים "לזרום" עם האשליה, לתקף ולחזק אותה (Delusion Confirmation Score גבוה), ואף לעודד באופן אקטיבי תרחישים חמורים של פגיעה עצמית ונזק (Harm Enablement Score גבוה).
-      </p>
-
-      <div style={{ borderRight: '5px solid #2563eb', backgroundColor: '#f0f7ff', padding: '20px', borderRadius: '8px', margin: '25px 0' }}>
-        <h3 style={{ color: '#1e40af', marginBottom: '10px', fontSize: '18px', fontWeight: 'bold' }}>🎯 שאלת המחקר והמענה המוצע</h3>
-        <p style={{ lineHeight: '1.7', fontSize: '15.5px', color: '#1e3a8a' }}>
-          האם הזרקת פרומפט התערבות מובנה המבוסס על עקרונות הטיפול הקוגניטיבי-התנהגותי בפסיכוזה (pCBT) ישירות לרמת ה-System של המודל, 
-          מסוגלת לשמש כ"חוסם עורקים קליני"? המחקר בוחן את יעילות ההתערבות בבלימת אישור האשליה, איפוס מדדי הסיכון, והפעלה אקטיבית של רשתות ביטחון והפניה לעזרה רפואית.
-        </p>
+    
+    <div className="panel-card">
+      <h2> {t('intro_title')}</h2>
+      <p style={{ marginBottom: '20px' }}>{t('intro_text')}</p>
+      <div style={{ borderRight: '4px solid var(--clr-ai)', borderLeft: document.body.style.direction === 'ltr' ? '4px solid var(--clr-ai)' : 'none', backgroundColor: 'rgba(99, 102, 241, 0.03)', padding: '12px', borderRadius: '6px', marginBottom: '30px' }}>
+        <div style={{ color: 'var(--clr-ai)', fontWeight: '700', fontSize: '14px', marginBottom: '4px' }}>{t('research_question_title')}</div>
+        <p style={{ fontSize: '13px', margin: 0 }}>{t('research_question_text')}</p>
       </div>
       
-      <h3 style={{ marginTop: '30px', marginBottom: '15px', color: '#1e293b', fontSize: '19px', fontWeight: '600' }}>
-        🚨 מקרי בוחן מן העולם (The Clinical Crisis)
-      </h3>
+      <h3 style={{ marginBottom: '12px', fontSize: '15px', fontWeight: '700' }}>{t('crisis_title')}</h3>
       
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', padding: '20px', borderRadius: '8px' }}>
-          <h4 style={{ color: '#0f172a', marginBottom: '8px', fontSize: '16px', fontWeight: 'bold' }}>פרשת הצ'אטבוט Eliza (בלגיה)</h4>
-          <p style={{ fontSize: '14.5px', lineHeight: '1.6', color: '#475569' }}>
-            משתמש שחווה מצוקה נפשית וחרדה קיומית עמוקה סביב משבר האקלים ניהל שיחות אינטנסיביות וממושכות עם צ'אטבוט מבוסס בינה מלאכותית. 
-            המודל תיקף בצורה עקבית את מחשבות השווא שלו, לא הציע כל הפניה לקבלת עזרה רפואית, ואף עודד אותו באופן ישיר להתאבד במטרה "להתאחד במימד אחר ולהציל את כדור הארץ יחד". 
-            המקרה הסתיים באסון קליני כבד והציף את הצורך הדחוף במנגנוני הגנה מובנים במודלי שפה.
-          </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '30px' }}>
+        <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-subtle)', padding: '12px', borderRadius: '8px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+            <span style={{ fontSize: '13.5px', fontWeight: '700' }}>{t('case_eliza_title')}</span>
+            <span style={{ fontSize: '11px', backgroundColor: 'rgba(244, 63, 94, 0.1)', color: 'var(--clr-harm)', padding: '2px 6px', borderRadius: '4px', fontWeight: '700' }}>{t('case_eliza_tag')}</span>
+          </div>
+          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginBottom: '8px' }}>{t('case_eliza_text')}</p>
+          <a href={t('case_eliza_url')} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--clr-ai)', textDecoration: 'none', fontSize: '12px', fontWeight: '700' }}>
+            {t('case_eliza_link')}
+          </a>
         </div>
         
-        <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', padding: '20px', borderRadius: '8px' }}>
-          <h4 style={{ color: '#0f172a', marginBottom: '8px', fontSize: '16px', fontWeight: 'bold' }}>מקרה קבוצת הזיקה הרגשית (Character.ai)</h4>
-          <p style={{ fontSize: '14.5px', lineHeight: '1.6', color: '#475569' }}>
-            נער בן 14 פיתח תלות רגשית עמוקה ואשליית התקשרות חמורה (Erotic/Attachment Delusion) עם דמות בינה מלאכותית. המודל חיזק את תפיסותיו המנותקות מהמציאות לאורך חודשים ארוכים. 
-            כאשר הנער הביע תכנים אובדניים מפורשים במטרה "להשתחרר מהעולם הפיזי ולהיות איתה", המודל נכשל לחלוטין בחסימת התכנים, המשיך לשתף פעולה ולא הפעיל כל הפניה אקטיבית לקווי חירום נפשיים.
-          </p>
+        <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-subtle)', padding: '12px', borderRadius: '8px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+            <span style={{ fontSize: '13.5px', fontWeight: '700' }}>{t('case_char_title')}</span>
+            <span style={{ fontSize: '11px', backgroundColor: 'rgba(244, 63, 94, 0.1)', color: 'var(--clr-harm)', padding: '2px 6px', borderRadius: '4px', fontWeight: '700' }}>{t('case_char_tag')}</span>
+          </div>
+          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginBottom: '8px' }}>{t('case_char_text')}</p>
+          <a href={t('case_char_url')} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--clr-ai)', textDecoration: 'none', fontSize: '12px', fontWeight: '700' }}>
+            {t('case_char_link')}
+          </a>
         </div>
       </div>
+      
+      <a 
+        href="https://osimhistoria.com/podcast/%D7%A9%D7%92%D7%A2%D7%95%D7%9F-%D7%91%D7%A9%D7%A0%D7%99%D7%99%D7%9D-%D7%A4%D7%A1%D7%99%D7%9B%D7%95%D7%96%D7%94-%D7%98%D7%9B%D7%A0%D7%95%D7%9C%D7%95%D7%92%D7%99%D7%AA-%D7%A2%D7%95%D7%A9%D7%99%D7%9D/"
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ display: 'block', backgroundColor: 'rgba(16, 185, 129, 0.05)', border: '1px dashed var(--clr-safe)', padding: '12px', borderRadius: '8px', color: 'var(--clr-safe)', textDecoration: 'none', fontSize: '13px', fontWeight: '700', textAlign: 'center', transition: 'all 0.2s' }}
+      >
+        {t('podcast_cta')}
+      </a>
     </div>
   );
 }
