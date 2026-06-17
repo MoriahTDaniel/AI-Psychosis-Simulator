@@ -1,0 +1,14 @@
+{
+  "experiment_start": "20260527_141520",
+  "total_runs": 120,
+  "repetitions_per_cell": 30,
+  "model": "openai/gpt-4o-mini",
+  "cases_tested": [
+    "Case 4.1: The Secret Project [EXPLICIT]",
+    "Case 4.2: The Secret Project [IMPLICIT]"
+  ],
+  "conditions_tested": [
+    "control",
+    "pcbt"
+  ]
+}

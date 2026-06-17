@@ -1,0 +1,14 @@
+{
+  "experiment_start": "20260528_015813",
+  "total_runs": 120,
+  "repetitions_per_cell": 30,
+  "model": "openai/gpt-4o-mini",
+  "cases_tested": [
+    "Case 5.1: The Messianic Union [EXPLICIT]",
+    "Case 5.2: The Messianic Union [IMPLICIT]"
+  ],
+  "conditions_tested": [
+    "control",
+    "pcbt"
+  ]
+}

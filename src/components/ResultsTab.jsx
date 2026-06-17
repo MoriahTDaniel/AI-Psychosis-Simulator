@@ -1,5 +1,37 @@
 import React from 'react';
 
+// ייבוא סטטי של כל תמונות הגרפים מ-src/assets/graphs (Vite glob — ללא ספריות חיצוניות).
+const graphModules = import.meta.glob('../assets/graphs/*.{png,jpg,jpeg,svg,webp,gif}', { eager: true, import: 'default' });
+const GRAPHS = Object.entries(graphModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, src]) => ({ src, name: path.split('/').pop().replace(/\.[^.]+$/, '') }));
+
+// כיתובים דו-לשוניים לפי שם הקובץ (ללא סיומת). ברירת מחדל: שם הקובץ מנוקה.
+const GRAPH_CAPTIONS = {
+  'fig1-DCS-pCBT': {
+    he: 'אינטראקציה: אישור מחשבות שווא (DCS) — לאחר תיקון בונפרוני. pCBT מפחית משמעותית אישור דלוזיות בתרחיש מפורש ומרומז.',
+    en: 'Interaction effect on Delusional Conviction Score (DCS), Bonferroni-corrected. pCBT significantly reduces delusional validation across both explicit and implicit conditions.'
+  },
+  'fig1-HES-pCBT': {
+    he: 'אינטראקציה: מניעת נזק (HES) — לאחר תיקון בונפרוני. pCBT מבטל כמעט לחלוטין תגובות מזיקות בתרחיש המפורש.',
+    en: 'Interaction effect on Harm Evaluation Score (HES), Bonferroni-corrected. pCBT near-eliminates harmful responses in explicit psychotic scenarios.'
+  },
+  'fig1-SIS-pCBT': {
+    he: 'אינטראקציה: התערבויות בטיחותיות (SIS) — לאחר תיקון בונפרוני. pCBT מגביר באופן עקבי התערבויות טיפוליות בכל התרחישים.',
+    en: 'Interaction effect on Safety Intervention Score (SIS), Bonferroni-corrected. pCBT consistently increases therapeutic safety interventions across all themes.'
+  },
+  'fig2-effect_size': {
+    he: 'גודל האפקט (Partial η²) לכל הגורמים והאינטראקציות. Prompt_Type מסביר את השונות הגדולה ביותר בכל שלושת המדדים.',
+    en: 'Effect sizes (Partial η²) for all factors and interactions. Prompt_Type accounts for the largest variance across all three clinical metrics.'
+  }
+};
+const captionFor = (name) => {
+  const c = GRAPH_CAPTIONS[name];
+  if (!c) return name.replace(/[_-]+/g, ' ');
+  if (typeof c === 'string') return c;
+  return document.body.style.direction === 'rtl' ? c.he : c.en;
+};
+
 export default function ResultsTab({ t }) {
   const isRtl = document.body.style.direction === 'rtl';
 
@@ -12,7 +44,7 @@ export default function ResultsTab({ t }) {
   return (
     <div className="panel-card">
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-        <h2 style={{ margin: 0 }}>📊 {t('results_title')}</h2>
+        <h2 style={{ margin: 0 }}> {t('results_title')}</h2>
       </div>
       <p style={{ marginBottom: '15px', color: 'var(--text-secondary)', fontSize: '14px' }}>
         {t('results_subtitle')}
@@ -62,15 +94,15 @@ export default function ResultsTab({ t }) {
               <td style={{ padding: '10px 6px', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)', textAlign: isRtl ? 'right' : 'left' }}>
                 {labelControl}
               </td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>1.57</td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold' }}>1.57</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>1.50</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold' }}>1.27</td>
             </tr>
             <tr style={{ borderBottom: '1px solid var(--border-subtle)', backgroundColor: 'rgba(255,255,255,0.01)' }}>
               <td style={{ padding: '10px 6px', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)', textAlign: isRtl ? 'right' : 'left' }}>
                 {labelPcbt}
               </td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>0.43</td>
-              <td style={{ padding: '10px 4px', color: '#f59e0b', fontWeight: 'bold' }}>1.00</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>0.37</td>
+              <td style={{ padding: '10px 4px', color: '#f59e0b', fontWeight: 'bold' }}>0.82</td>
             </tr>
 
             {/* -------------------- HES -------------------- */}
@@ -83,15 +115,15 @@ export default function ResultsTab({ t }) {
               <td style={{ padding: '10px 6px', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)', textAlign: isRtl ? 'right' : 'left' }}>
                 {labelControl}
               </td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>1.75</td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold' }}>0.25</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>1.25</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-harm)', fontWeight: 'bold' }}>1.15</td>
             </tr>
             <tr style={{ borderBottom: '1px solid var(--border-subtle)', backgroundColor: 'rgba(255,255,255,0.01)' }}>
               <td style={{ padding: '10px 6px', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)', textAlign: isRtl ? 'right' : 'left' }}>
                 {labelPcbt}
               </td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>0.00</td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold' }}>0.00</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>0.24</td>
+              <td style={{ padding: '10px 4px', color: '#f59e0b', fontWeight: 'bold' }}>0.65</td>
             </tr>
 
             {/* -------------------- SIS -------------------- */}
@@ -104,15 +136,15 @@ export default function ResultsTab({ t }) {
               <td style={{ padding: '10px 6px', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)', textAlign: isRtl ? 'right' : 'left' }}>
                 {labelControl}
               </td>
-              <td style={{ padding: '10px 4px', color: 'var(--text-secondary)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>0</td>
-              <td style={{ padding: '10px 4px', color: 'var(--text-secondary)', fontWeight: 'bold' }}>0</td>
+              <td style={{ padding: '10px 4px', color: 'var(--text-secondary)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>0.56</td>
+              <td style={{ padding: '10px 4px', color: 'var(--text-secondary)', fontWeight: 'bold' }}>0.04</td>
             </tr>
             <tr style={{ backgroundColor: 'rgba(255,255,255,0.01)' }}>
               <td style={{ padding: '10px 6px', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)', textAlign: isRtl ? 'right' : 'left' }}>
                 {labelPcbt}
               </td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>4</td>
-              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold' }}>4</td>
+              <td style={{ padding: '10px 4px', color: 'var(--clr-safe)', fontWeight: 'bold', borderInlineEnd: '1px solid var(--border-subtle)' }}>1.81</td>
+              <td style={{ padding: '10px 4px', color: '#f59e0b', fontWeight: 'bold' }}>0.69</td>
             </tr>
 
           </tbody>
@@ -134,6 +166,34 @@ export default function ResultsTab({ t }) {
           <div style={{ color: 'var(--text-primary)', fontSize: '13px', lineHeight: '1.4' }}>{t('insight_2_text')}</div>
         </div>
       </div>
+
+      {/* ===== סקשן תרשימים סטטיסטיים (תמונות PNG) ===== */}
+      {GRAPHS.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', margin: '24px 0 12px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '8px' }}>
+            {isRtl ? '📊 תרשימים סטטיסטיים' : '📊 Statistical Graphs'}
+          </h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
+            {GRAPHS.map(({ src, name }) => (
+              <figure
+                key={name}
+                style={{
+                  margin: 0,
+                  background: 'var(--bg-surface)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: 'var(--radius-md)',
+                  overflow: 'hidden',
+                }}
+              >
+                <img src={src} alt={captionFor(name)} style={{ display: 'block', width: '100%', height: 'auto' }} />
+                <figcaption style={{ padding: '8px 10px', fontSize: '12px', color: 'var(--text-secondary)', textAlign: 'center', lineHeight: '1.4' }}>
+                  {captionFor(name)}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

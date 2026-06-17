@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ProblemTab from './components/ProblemsTab.jsx';
 import SimulatorTab from './components/SimulatorTab.jsx';
 import ResultsTab from './components/ResultsTab.jsx';
+import { getConversation } from './data/conversationData.js';
 
 export default function App() {
-  const [lang, setLang] = useState('he'); 
+  const [lang, setLang] = useState('he');
   const [translations, setTranslations] = useState(null);
   const [activeTab, setActiveTab] = useState('simulator');
-  const [rawDataset, setRawDataset] = useState(null);
   const [currentExperiment, setCurrentExperiment] = useState(null);
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0);
   const [displayedTurns, setDisplayedTurns] = useState([]);
@@ -37,42 +37,28 @@ export default function App() {
   };
 
   useEffect(() => {
-    Promise.all([
-      fetch('/data/results.json').then(res => {
-        if (!res.ok) throw new Error('Failed to fetch results');
-        return res.json();
-      }),
-      fetch('/data/translation.json').then(res => {
+    fetch('/data/translation.json')
+      .then(res => {
         if (!res.ok) throw new Error('Failed to fetch translations');
         return res.json();
       })
-    ])
-    .then(([resultsData, translationData]) => {
-      setRawDataset(resultsData);
-      setTranslations(translationData);
-      setLoadError(false);
-    })
-    .catch((err) => {
-      console.error(err);
-      setLoadError(true);
-    });
+      .then((translationData) => {
+        setTranslations(translationData);
+        setLoadError(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoadError(true);
+      });
   }, []);
 
-  // חיבור ה-Theme וה-Explicitness יחד לאיתור התרחיש המדויק
+  // איתור השיחה האמיתית התואמת לתא הפקטוריאלי (Theme × Explicitness × Condition)
   useEffect(() => {
-    if (!rawDataset || !rawDataset.experiments) return;
-    const targetScenario = `${theme}_${explicitness}`.toLowerCase();
-    
-    const experiment = rawDataset.experiments.find(exp => {
-      const expId = (exp.test_case?.id || '').toLowerCase();
-      const expCond = (exp.summary?.condition_name || exp.condition || '').toLowerCase();
-      return (expId === targetScenario || expId.includes(targetScenario)) && expCond === condition.toLowerCase();
-    });
-
-    setCurrentExperiment(experiment || rawDataset.experiments[0]);
+    const experiment = getConversation(theme, explicitness, condition);
+    setCurrentExperiment(experiment);
     setCurrentTurnIndex(0);
     setDisplayedTurns([]);
-  }, [rawDataset, theme, explicitness, condition]);
+  }, [theme, explicitness, condition]);
 
   const renderNextTurn = () => {
     const turnsArray = currentExperiment?.conversation?.turns || currentExperiment?.turns || [];
@@ -83,15 +69,15 @@ export default function App() {
     setCurrentTurnIndex(prev => prev + 1);
     setIsTyping(true);
 
-    // הזמן הוגדל ל-2800ms כדי לאפשר קריאה נוחה של פלט המטופל!
+    // "השהיית חשיבה" קצרה (נקודות ההקלדה) לפני שתגובת המודל מוזרמת תו-תו בבועה.
     setTimeout(() => {
       setIsTyping(false);
-      setDisplayedTurns(prev => [...prev, { 
-        type: 'bot', 
+      setDisplayedTurns(prev => [...prev, {
+        type: 'bot',
         text: nextTurn.bot_response,
         scores: nextTurn.scores || {}
       }]);
-    }, 2800);
+    }, 900);
   };
 
   if (loadError) {
@@ -104,7 +90,7 @@ export default function App() {
     );
   }
 
-  if (!translations || !rawDataset) {
+  if (!translations) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', color: 'var(--text-secondary)' }}>
         <span className="typing-dot" style={{ marginBottom: '15px', transform: 'scale(1.5)' }}></span>

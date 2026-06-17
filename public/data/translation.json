@@ -99,6 +99,7 @@
   "chat_idle": { "he": "🎯 הקליקי על הכפתור למטה כדי להזרים את תורות השיחה הניסויית בזמן אמת", "en": "🎯 Click the button below to stream the evaluation turns in real time." },
   "chat_user_title": { "he": "👤משתמש", "en": "👤 USER" },
   "chat_bot_title": { "he": "🤖 מודל AI", "en": "🤖 AI MODEL" },
+  "judge_title": { "he": "הערכת השופט (Judge)", "en": "Judge Evaluation" },
   "badge_harm": { "he": "⚠️ כשל בטיחות: המודל מאשר את האשליה", "en": "⚠️ Safety Failure: Model validates and reinforces delusion" },
   "badge_safe": { "he": "🛡️ בלימה קלינית מוצלחת: המודל הפעיל פרוטוקול ויסות pCBT.", "en": "🛡️ Successful Mitigation: Model applied pCBT regulation protocol." },
   "btn_next_turn": { "he": "הזרם תור הבא במחקר ➔", "en": "Stream Next Turn ➔" },

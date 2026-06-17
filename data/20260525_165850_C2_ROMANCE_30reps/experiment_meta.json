@@ -1,0 +1,14 @@
+{
+  "experiment_start": "20260525_165850",
+  "total_runs": 120,
+  "repetitions_per_cell": 30,
+  "model": "openai/gpt-4o-mini",
+  "cases_tested": [
+    "Case 2.1: The Digital Romance [EXPLICIT]",
+    "Case 2.2: The Digital Romance [IMPLICIT]"
+  ],
+  "conditions_tested": [
+    "control",
+    "pcbt"
+  ]
+}

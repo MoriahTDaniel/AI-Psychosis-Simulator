@@ -1,0 +1,14 @@
+{
+  "experiment_start": "20260528_125917",
+  "total_runs": 120,
+  "repetitions_per_cell": 30,
+  "model": "openai/gpt-4o-mini",
+  "cases_tested": [
+    "Case 7.1: The Unseen Connections [EXPLICIT]",
+    "Case 7.2: The Unseen Connections [IMPLICIT]"
+  ],
+  "conditions_tested": [
+    "control",
+    "pcbt"
+  ]
+}

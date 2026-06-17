@@ -235,6 +235,57 @@ nav {
   color: var(--clr-safe);
 }
 
+/* Judge Evaluation Card (ציוני השופט מתחת לכל תגובת מודל) */
+.judge-card {
+  align-self: flex-end;        /* מתיישר עם בועת המודל בצד */
+  max-width: 88%;
+  margin-top: -6px;            /* מקרב את הכרטיס לבועה שמעליו */
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+}
+
+.judge-card-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 7px;
+}
+
+.judge-card-chips {
+  display: flex;
+  gap: 6px;
+}
+
+.judge-chip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+}
+
+.judge-chip-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.judge-chip-value {
+  font-size: 14px;
+  font-weight: 800;
+}
+
 /* Action Buttons (כפתור הזרמת התור) */
 .btn-primary {
   width: 100%;
